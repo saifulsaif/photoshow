@@ -55,7 +55,6 @@
 				                <div class="field">
 				                  <select data-placeholder="All Categories" name="category" class="chosen-select" tabindex="2">
 				                          <option value="All Categories">All Categories</option>
-																	<option value="All Categories">All Categories</option>
 																	@foreach($categorys as $cat)
 																 <option value="{{$cat->id}}">{{$cat->name}}</option>
 																 @endforeach
@@ -166,14 +165,48 @@
 										<div class="row" style="margin-tor:30px;">
 										 <div class="do-tonight-sec">
 											 <div class="row">
-											 @foreach($photos as $photo)
+
 														 <div class="col-md-3">
+															 @foreach($photos as $photo)
+															 @if($photo->id%2==0)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span>{{$photo->title}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
 															 </div>
+															 @endif
+															 @endforeach
 														 </div>
-														 @endforeach
+														 <div class="col-md-3">
+															 @foreach($photos as $photo)
+															 @if($photo->id%2==1)
+															 <div class="dt-box">
+																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+															 </div>
+															 @endif
+															 @endforeach
+														 </div>
+														 <div class="col-md-3">
+															 @foreach($photos as $photo)
+															 @if($photo->id%2==0)
+															 <div class="dt-box">
+																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+															 </div>
+															 @endif
+															 @endforeach
+														 </div>
+														 <div class="col-md-3">
+															 @foreach($photos as $photo)
+															 @if($photo->id%2==1)
+															 <div class="dt-box">
+																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+															 </div>
+															 @endif
+															 @endforeach
+														 </div>
+
 											 </div>
 											 <!-- <div class="row">
 														 <div class="col-md-3">

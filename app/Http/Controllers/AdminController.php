@@ -76,7 +76,7 @@ class AdminController extends Controller
 
 
     public function allPhoto()  {
-      $all_photos = DB::table('photos')->get();
+      $all_photos = DB::table('photos')->orderBy('id', 'DESC')->get();
       $categorys = DB::table('categories')->get();
       $settings = DB::table('settings')->find('1');
       return view('admin.all_photo',compact('settings','all_photos','categorys'));
@@ -84,7 +84,7 @@ class AdminController extends Controller
     public function myPhoto(){
       $user_id=Auth::user()->id;
       $categorys = DB::table('categories')->get();
-      $all_photos = DB::table('photos')->where('user_id',$user_id)->get();
+      $all_photos = DB::table('photos')->where('user_id',$user_id)->orderBy('id', 'DESC')->get();
       $settings = DB::table('settings')->find('1');
       return view('admin.my_photo',compact('settings','all_photos','categorys'));
     }

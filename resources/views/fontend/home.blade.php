@@ -30,7 +30,7 @@
     @endguest
 
     @guest
-    <a href="add-listing.html" title="" class="add-listing-btn"><i class="la la-plus"></i>Free Point</a>
+    <a href="add-listing.html" title="" class="add-listing-btn"><i class="la la-plus"></i>Free $</a>
     @else
        <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
     @endguest
@@ -48,7 +48,6 @@
     <ul>
       <li><a href="{{ route('home') }}" title="">Home</a></li>
       <li><a href="{{ route('photo') }}" title="">Photos</a></li>
-      <li><a href="{{ route('video') }}" title="">Videos</a></li>
       <li><a href="{{ route('promotion') }}" title="">Promition</a></li>
       <li><a href="{{ route('contact') }}" title="">Contact US</a></li>
       @guest
@@ -72,7 +71,7 @@
     </div>
     @endguest
    @guest
-     <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"><i class="la la-plus"></i> Free Point</a>
+     <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"><i class="la la-plus"></i> Free  <img style="border-radius: 50%;height: 17px;width: 20px;margin-left: 2px"  src="{{asset('/images/dollar.png')}}"></a>
    @else
    <div class="search-header">
         <div class="review-avatar">
@@ -98,7 +97,6 @@
       <ul>
         <li><a href="{{ route('home') }}" title="">Home</a></li>
         <li><a href="{{ route('photo') }}" title="">Photos</a></li>
-        <li><a href="{{ route('video') }}" title="">Videos</a></li>
         <li><a href="{{ route('promotion') }}" title="">Promition</a></li>
         <li><a href="{{ route('contact') }}" title="">Contact US</a></li>
         @guest
@@ -144,13 +142,13 @@
               </form>
             </div>
             <div class="cat-lists">
-              <ul>
+              <!-- <ul>
                 <li><a href="#" title=""><i class="la la-car"></i><span>Cars</span></a></li>
                 <li><a href="#" title=""><i class="la la-spoon"></i><span>Food & Drinks</span></a></li>
                 <li><a href="#" title=""><i class="la la-plane"></i><span>Travels</span></a></li>
                 <li><a href="#" title=""><i class="la la-briefcase"></i><span>Business</span></a></li>
                 <li><a href="#" title=""><i class="la la-shopping-cart"></i><span>Shoppings</span></a></li>
-              </ul>
+              </ul> -->
             </div>
             <a class="arrow-down floating" href="#scroll-here" title=""><i class="la la-angle-down"></i></a>
           </div>
@@ -303,7 +301,7 @@
   </div>
 </section>
 
-<section>
+<!-- <section>
   <div class="block gray remove-top">
     <div class="container">
       <div class="row">
@@ -321,9 +319,9 @@
                   <div class="category-box-detail">
                     <span><a href="#" title=""><i class="la la-eye"></i></a></span>
                     <h3><a href="#" title="">{{$cat->name}}</a></h3>
-                    <!-- <p>8 listings</p> -->
+
                   </div>
-                </div><!-- Category Box -->
+                </div>
               </div>
               @endforeach
             </div>
@@ -332,9 +330,9 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-  <div class="block gray remove-top">
+  <!-- <div class="block gray remove-top">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -349,7 +347,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 @endsection

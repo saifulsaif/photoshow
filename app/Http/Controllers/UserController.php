@@ -72,10 +72,10 @@ class UserController extends Controller
       $photo->save();
       $tag=$request->tag;
        foreach ($tag as $key => $n) {
-        $tag = new Tag;
-        $tag->tag=$n;
-        $tag->photo_id=$photo->id;
-        $tag->save();
+        
+        DB::table('tags')->insert(
+            ['tag' => $n, 'photo_id' =>$photo->id]
+        );
        }
     }
     DB::table('Points')

@@ -1892,7 +1892,7 @@ header .SumoSelect > .optWrapper > .options > li.opt.selected label {
 }
 .dt-box > a img {
     float: left;
-    opacity: 0.5;
+    opacity: 0.9;
     width: 100%;
       -webkit-transition: -webkit-transform 5s ease-out,filter 500ms ease-in-out,-webkit-filter 500ms ease-in-out;
     transition: transform 5s ease-out,filter 500ms ease-in-out,-webkit-filter 500ms ease-in-out;
