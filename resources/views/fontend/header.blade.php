@@ -52,8 +52,15 @@
       @else
       <li><a href="{{route('profile')}}" title="">Profile</a></li>
       @endguest
+        <li>
+          <form class="form-inline my-2 my-lg-0"action="{{route('search.photo')}}" method="post" enctype="multipart/form-data">
+            {{csrf_field() }}
+             <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
+             <button  class="inline-btn my-2 my-sm-0" type="submit">Search..</button>
+          </form>
+       </li>
     </ul>
-  </div>
+    </div>
 </div><!-- Responsive-header -->
 <header class="on-top dark">
 		<div class="logo"><a href="{{ route('home') }}" title=""><img src="{{asset($settings->logo)}}" alt="" /></a></div>
@@ -99,7 +106,15 @@
           @else
           <li><a href="{{route('profile')}}" title="">Profile</a></li>
           @endguest
+          <li>
+            <form class="form-inline my-2 my-lg-0"action="{{route('search.photo')}}" method="post" enctype="multipart/form-data">
+              {{csrf_field() }}
+               <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
+              <button class="inline-btn my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </li>
         </ul>
+
 			</nav>
 		</div>
 	</header>
