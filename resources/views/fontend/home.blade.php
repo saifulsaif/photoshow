@@ -169,14 +169,36 @@
           <div class="row">
            <div class="do-tonight-sec">
              <div class="row">
-                   @foreach($photos as $photo)
-                   <div class="col-md-4">
-                     <div class="dt-box">
-                       <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{$photo->photo}}" alt="" /></a>
-                       <span>{{$photo->title}}</span>
-                     </div>
-                   </div>
-                   @endforeach
+               <div class="col-md-4">
+                 @foreach($photos as $photo)
+                 @if($photo->id%3==0)
+                 <div class="dt-box">
+                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+                   <span style="padding-left: 10px;">{{$photo->title}}</span>
+                 </div>
+                 @endif
+                 @endforeach
+               </div>
+               <div class="col-md-4">
+                 @foreach($photos as $photo)
+                 @if($photo->id%3==1)
+                 <div class="dt-box">
+                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+                   <span style="padding-left: 10px;">{{$photo->title}}</span>
+                 </div>
+                 @endif
+                 @endforeach
+               </div>
+               <div class="col-md-4">
+                 @foreach($photos as $photo)
+                 @if($photo->id%3==2)
+                 <div class="dt-box">
+                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+                   <span style="padding-left: 10px;">{{$photo->title}}</span>
+                 </div>
+                 @endif
+                 @endforeach
+               </div>
              </div>
                   <a href="{{route('photo')}}" title="" class="view-all-blog">More Photos</a>
            </div>

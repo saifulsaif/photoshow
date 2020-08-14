@@ -89,6 +89,12 @@
                                    @endforeach
                                </tbody>
                            </table>
+                           <div class="pagination">
+
+                              <ul>
+                                  <span style="color:red;">{{$promotions->links()}}</span>
+                              </ul>
+                            </div>
                        </div>
                        <div class="modal fade" id="myModalthree" role="dialog">
                                     <div class="modal-dialog modal-sm">

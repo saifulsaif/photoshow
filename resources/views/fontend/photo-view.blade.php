@@ -85,8 +85,11 @@
 						<div class="product-sec">
 							<div class="products-box">
 								<div class="row">
-									@foreach($related_photos as $photo)
+
+
 									<div class="col-md-3 col-sm-6 col-xs-12">
+										@foreach($related_photos as $photo)
+										@if($photo->id%4==0)
 										<div class="product-box">
 											<div class="product-thumb">
 												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
@@ -94,19 +97,54 @@
 											</div>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
 										</div>
+										@endif
+										@endforeach
 									</div>
-									@endforeach
+									<div class="col-md-3 col-sm-6 col-xs-12">
+									@foreach($related_photos as $photo)
+									@if($photo->id%4==1)
+										<div class="product-box">
+											<div class="product-thumb">
+												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+
+											</div>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+										</div>
+										@endif
+										@endforeach
+									</div>
+									<div class="col-md-3 col-sm-6 col-xs-12">
+									@foreach($related_photos as $photo)
+									@if($photo->id%4==2)
+										<div class="product-box">
+											<div class="product-thumb">
+												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+
+											</div>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+										</div>
+										@endif
+										@endforeach
+									</div>
+									<div class="col-md-3 col-sm-6 col-xs-12">
+									@foreach($related_photos as $photo)
+									@if($photo->id%4==3)
+										<div class="product-box">
+											<div class="product-thumb">
+												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+
+											</div>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+										</div>
+										@endif
+										@endforeach
+									</div>
 								</div>
 							</div>
 							<div class="pagination">
+
 								<ul>
-									<li class="prev"><a href=""><i class="la  la-arrow-left"></i></a></li>
-									<li><a href="">1</a></li>
-									<li><a class="active" href="">2</a></li>
-									<li><a href="">3</a></li>
-									<li><span class="delimeter">...</span></li>
-									<li><a href="">22</a></li>
-									<li class="next"><a href=""><i class="la  la-arrow-right"></i></a></li>
+										<span style="color:red;">{{$related_photos->links()}}</span>
 								</ul>
 							</div>
 						</div>

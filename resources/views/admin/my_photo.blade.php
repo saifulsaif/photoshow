@@ -112,6 +112,12 @@
                                    @endforeach
                                </tbody>
                            </table>
+                           <div class="pagination" style="text-align:center;">
+
+                              <ul>
+                                  <span style="color:red;">{{$all_photos->links()}}</span>
+                              </ul>
+                            </div>
                        </div>
                        <div class="modal fade" id="myModalthree" role="dialog">
                                     <div class="modal-dialog modal-sm">
@@ -144,6 +150,7 @@
                    </div>
                </div>
            </div>
+
        </div>
    </div>
 

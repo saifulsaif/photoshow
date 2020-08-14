@@ -41,15 +41,17 @@ class HomeController extends Controller
       $categorys = DB::table('categories')->limit(8)->get();
       $sliders = DB::table('sliders')->get();
       $promotions = DB::table('promotions')->limit(5)->orderBy('id','DESC')->get();
-      $photos = DB::table('photos')->limit(6)->orderBy('id', 'DESC')->get();
+      $photos = DB::table('photos')->limit(9)->orderBy('id', 'DESC')->get();
       $settings = DB::table('settings')->find('1');
       return view('fontend.home',compact('categorys','settings','sliders','photos','promotions'));
     }
     public function photo(){
       $settings = DB::table('settings')->find('1');
       $categorys = DB::table('categories')->get();
-      $photos = DB::table('photos')->orderBy('id', 'DESC')->paginate(12);
-      return view('fontend.photo',compact('categorys','settings','photos'));
+      $photos = DB::table('photos')->orderBy('id', 'DESC')->paginate(20);
+      $photo_count= DB::table('photos')
+                ->count('id');
+      return view('fontend.photo',compact('categorys','settings','photos','photo_count'));
     }
    public function photoView($id,$category_id){
       $settings = DB::table('settings')->find('1');
@@ -59,7 +61,7 @@ class HomeController extends Controller
                 ->get();
       $related_photos = DB::table('photos')
                 ->where('category_id',$category_id)
-                ->get();
+                ->paginate(12);
       $related_tags = DB::table('tags')
                 ->where('photo_id',$id)
                 ->get();
@@ -74,11 +76,11 @@ class HomeController extends Controller
                 ->where('title','like','%' . $request->keyword . '%')
                 ->orWhere('category_id',$request->category)
                 ->orderBy('id', 'DESC')
-                ->get();
+                ->paginate(20);
       }elseif($request->category==''&&$request->keyword==''){
         $photos = DB::table('photos')
                 ->orderBy('id', 'DESC')
-                ->get();
+                ->paginate(20);
       }elseif($request->category!=''){
         $photos = DB::table('photos')
                 ->where('category_id',$request->category)
@@ -88,7 +90,7 @@ class HomeController extends Controller
         $photos = DB::table('photos')
                 ->where('title','like','%' . $request->keyword . '%')
                 ->orderBy('id', 'DESC')
-                ->get();
+                ->paginate(20);
       }
       return view('fontend.photo',compact('categorys','settings','photos'));
 

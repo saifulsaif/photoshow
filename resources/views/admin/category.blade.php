@@ -84,6 +84,12 @@
                                    @endforeach
                                </tbody>
                            </table>
+                           <div class="pagination">
+
+                              <ul>
+                                  <span style="color:red;">{{$categorys->links()}}</span>
+                              </ul>
+                            </div>
                        </div>
                        <div class="modal fade" id="myModal" role="dialog">
                                     <div class="modal-dialog modal-sm">

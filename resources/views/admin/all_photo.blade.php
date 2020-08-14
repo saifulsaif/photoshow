@@ -55,16 +55,16 @@
                                                               </div>
                                                         </div>
                                                         <div class="form-group float-lb">
-                                                          <div class="table-responsive">  
-                                                               <table class="table table-bordered" id="dynamic_field">  
-                                                                    <tr>  
-                                                                         <td><input type="text" name="tag[]" placeholder="Enter New Tag" class="form-control name_list" /></td>  
-                                                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add Tag</button></td>  
-                                                                    </tr>  
-                                                               </table>   
-                                                          </div>  
+                                                          <div class="table-responsive">
+                                                               <table class="table table-bordered" id="dynamic_field">
+                                                                    <tr>
+                                                                         <td><input type="text" name="tag[]" placeholder="Enter New Tag" class="form-control name_list" /></td>
+                                                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add Tag</button></td>
+                                                                    </tr>
+                                                               </table>
+                                                          </div>
                                                         </div>
-         
+
                                                     </div>
                                                 </div>
                                                 </div>
@@ -122,6 +122,12 @@
                                    @endforeach
                                </tbody>
                            </table>
+                           <div class="pagination">
+
+                              <ul>
+                                  <span style="color:red;">{{$all_photos->links()}}</span>
+                              </ul>
+                            </div>
                        </div>
                    </div>
                </div>
@@ -142,29 +148,29 @@
          modal.find('.modal-body #cat_id').val(cat_id);
    })
    </script>
-   <script>  
- $(document).ready(function(){  
-      var i=1;  
-      $('#add').click(function(){  
-           i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="tag[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
-      });  
-      $(document).on('click', '.btn_remove', function(){  
-           var button_id = $(this).attr("id");   
-           $('#row'+button_id+'').remove();  
-      });  
-      $('#submit').click(function(){            
-           $.ajax({  
-                url:"name.php",  
-                method:"POST",  
-                data:$('#add_name').serialize(),  
-                success:function(data)  
-                {  
-                     alert(data);  
-                     $('#add_name')[0].reset();  
-                }  
-           });  
-      });  
- });  
+   <script>
+ $(document).ready(function(){
+      var i=1;
+      $('#add').click(function(){
+           i++;
+           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="tag[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+      });
+      $(document).on('click', '.btn_remove', function(){
+           var button_id = $(this).attr("id");
+           $('#row'+button_id+'').remove();
+      });
+      $('#submit').click(function(){
+           $.ajax({
+                url:"name.php",
+                method:"POST",
+                data:$('#add_name').serialize(),
+                success:function(data)
+                {
+                     alert(data);
+                     $('#add_name')[0].reset();
+                }
+           });
+      });
+ });
  </script>
 @endsection

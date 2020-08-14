@@ -163,45 +163,46 @@
 										</div>
 										@endguest
 										<div class="row" style="margin-tor:30px;">
+
 										 <div class="do-tonight-sec">
 											 <div class="row">
 
 														 <div class="col-md-3">
 															 @foreach($photos as $photo)
-															 @if($photo->id%2==0)
+															 @if($photo->id%4==0)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span>
 															 </div>
 															 @endif
 															 @endforeach
 														 </div>
 														 <div class="col-md-3">
 															 @foreach($photos as $photo)
-															 @if($photo->id%2==1)
+															 @if($photo->id%4==1)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span>
 															 </div>
 															 @endif
 															 @endforeach
 														 </div>
 														 <div class="col-md-3">
 															 @foreach($photos as $photo)
-															 @if($photo->id%2==0)
+															 @if($photo->id%4==2)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span>
 															 </div>
 															 @endif
 															 @endforeach
 														 </div>
 														 <div class="col-md-3">
 															 @foreach($photos as $photo)
-															 @if($photo->id%2==1)
+															 @if($photo->id%4==3)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}{{$photo->id}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span>
 															 </div>
 															 @endif
 															 @endforeach

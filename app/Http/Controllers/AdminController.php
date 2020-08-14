@@ -13,7 +13,7 @@ use\DB;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use  Illuminate\Pagination\Paginator;
 class AdminController extends Controller
 {
     /**
@@ -76,7 +76,7 @@ class AdminController extends Controller
 
 
     public function allPhoto()  {
-      $all_photos = DB::table('photos')->orderBy('id', 'DESC')->get();
+      $all_photos = DB::table('photos')->orderBy('id', 'DESC')->paginate(10);
       $categorys = DB::table('categories')->get();
       $settings = DB::table('settings')->find('1');
       return view('admin.all_photo',compact('settings','all_photos','categorys'));
@@ -84,7 +84,7 @@ class AdminController extends Controller
     public function myPhoto(){
       $user_id=Auth::user()->id;
       $categorys = DB::table('categories')->get();
-      $all_photos = DB::table('photos')->where('user_id',$user_id)->orderBy('id', 'DESC')->get();
+      $all_photos = DB::table('photos')->where('user_id',$user_id)->orderBy('id', 'DESC')->paginate(10);
       $settings = DB::table('settings')->find('1');
       return view('admin.my_photo',compact('settings','all_photos','categorys'));
     }
@@ -94,7 +94,7 @@ class AdminController extends Controller
 
 
     public function category()  {
-      $categorys = DB::table('categories')->get();
+      $categorys = DB::table('categories')->paginate(10);
       $settings = DB::table('settings')->find('1');
       return view('admin.category',compact('settings','categorys'));
     }
@@ -127,7 +127,7 @@ class AdminController extends Controller
     }
 
     public function Promotion(){
-      $promotions = DB::table('promotions')->get();
+      $promotions = DB::table('promotions')->paginate(10);
       $settings = DB::table('settings')->find('1');
       return view('admin.promotion',compact('settings','promotions'));
     }
