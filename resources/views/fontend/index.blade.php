@@ -6,6 +6,8 @@
 <meta name="keywords" content="">
 <meta name="author" content="creativelayers">
 <!-- Global site tag (gtag.js) - Google Analytics -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163803980-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -87,7 +89,7 @@ color: #1a1a1a;
 	.follow:hover{
 		background-color:#05a081bd;
 		color:white;
-	}	
+	}
 	.page-link{
 		border-radius: 50%;
 		background-color: #d90429;

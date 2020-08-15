@@ -10,6 +10,7 @@ Route::get('/promotion', 'HomeController@promotion')->name('promotion');
 Route::get('/contact-us', 'HomeController@contact')->name('contact');
 Route::get('/user-profile', 'HomeController@profile')->name('profile');
 Route::get('/photos/view/{id}/{category_id}', 'HomeController@photoView')->name('photos');
+Route::get('/author-profile/{id}', 'HomeController@authorProfile')->name('author.profile');
 Route::post('/search/photo','HomeController@searchPhoto')->name('search.photo');
 Route::get('/terms-and-condition','HomeController@terms')->name('terms');
 Route::get('/privacy-policy','HomeController@policy')->name('policy');

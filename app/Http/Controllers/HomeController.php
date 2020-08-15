@@ -53,6 +53,13 @@ class HomeController extends Controller
                 ->count('id');
       return view('fontend.photo',compact('categorys','settings','photos','photo_count'));
     }
+   public function authorProfile($id){
+      $settings = DB::table('settings')->find('1');
+      $related_photos = DB::table('photos')
+                ->where('user_id',$id)
+                ->paginate(12);
+      return view('fontend.author-profile',compact('settings','related_photos','id'));
+    }
    public function photoView($id,$category_id){
       $settings = DB::table('settings')->find('1');
       $photos = DB::table('photos')
