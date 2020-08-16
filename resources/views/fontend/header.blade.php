@@ -55,8 +55,8 @@
         <li>
           <form class="form-inline my-2 my-lg-0"action="{{route('search.photo')}}" method="post" enctype="multipart/form-data">
             {{csrf_field() }}
-             <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
-             <button  class="inline-btn my-2 my-sm-0" type="submit">Search..</button>
+             <input class="form-control mr-sm-2 from" style="width: 96%;margin-left: 2%;" name="keyword" type="text" placeholder="Search">
+             <button  class="inline-btn my-2 my-sm-0" style="float:right;margin:10px;" type="submit">Search..</button>
           </form>
        </li>
     </ul>

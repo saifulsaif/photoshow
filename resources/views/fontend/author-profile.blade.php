@@ -24,11 +24,6 @@
 									<div class="col-md-4 col-ms-4" style="text-align:center;">
 										@php
 										$author_photo= App\Profile::where('user_id',$id)->first();
-										$author_follower= App\Follower::where('followers',$author_photo->id)->get();
-										$followers=0;
-										foreach($author_follower as $follow){
-											$followers++;
-										}
 										@endphp
 										<!-- {{url('/user/profile')}}/{{$author_photo->user_id}} -->
 										<div class="review-avatar"> <a href="{{url('/author-profile')}}/{{$author_photo->id}}"> <img style="border-radius: 50%;height: 176px;width: 176px;" src="{{asset('/'.$author_photo->photo)}}" alt=""> </a></div>
@@ -48,26 +43,33 @@
 										 <h5>Follower</h5>
 										 @if($followers>1000)
                        @php $followers=($followers/1000); @endphp
-											 <span>{{$followers}}K	 Follows</span>
+											 <span style="margin-left: 13px;">{{$followers}}K	 Follows</span>
 										 @else
-										 <span>{{$followers}}  Follows</span>
+										 <span style="margin-left: 13px;">{{$followers}}</span>
 										 @endif
 									</div>
 									<div class="col-md-2 col-ms-4">
 
-										<h5> Upload</h5>
+										<h5>Following</h5>
+										@if($following>1000)
+											@php $following=($following/1000); @endphp
+											<span style="margin-left: 13px;">{{$following}}K</span>
+										@else
+										<span style="margin-left: 13px;">{{$following}}</span>
+										@endif
 
 									</div>
 									<div class="col-md-2 col-ms-4">
+
+										<h5> Upload</h5>
+											<span style="margin-left: 13px;">{{$upload}}</span>
+
+									</div>
+									<!-- <div class="col-md-2 col-ms-4">
 
 										<h5> Download</h5>
 
-									</div>
-									<div class="col-md-2 col-ms-4">
-
-										<h5>Following</h5>
-
-									</div>
+									</div> -->
 								</div>
 								<div class="single-product-gallery">
 								</div>

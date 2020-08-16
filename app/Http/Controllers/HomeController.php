@@ -58,7 +58,16 @@ class HomeController extends Controller
       $related_photos = DB::table('photos')
                 ->where('user_id',$id)
                 ->paginate(12);
-      return view('fontend.author-profile',compact('settings','related_photos','id'));
+      $upload = DB::table('photos')
+                ->where('user_id', '=', $id)
+                ->count('id');
+      $followers = DB::table('followers')
+                ->where('followers', '=', $id)
+                ->count('id');
+      $following = DB::table('followers')
+                ->where('following', '=', $id)
+                ->count('id');
+      return view('fontend.author-profile',compact('followers','following','settings','related_photos','id','upload'));
     }
    public function photoView($id,$category_id){
       $settings = DB::table('settings')->find('1');
