@@ -172,7 +172,7 @@
 															 @if($photo->id%4==0)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
 															 </div>
 															 @endif
 															 @endforeach
@@ -182,7 +182,7 @@
 															 @if($photo->id%4==1)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
 															 </div>
 															 @endif
 															 @endforeach
@@ -192,7 +192,7 @@
 															 @if($photo->id%4==2)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
 															 </div>
 															 @endif
 															 @endforeach
@@ -202,7 +202,7 @@
 															 @if($photo->id%4==3)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
 															 </div>
 															 @endif
 															 @endforeach

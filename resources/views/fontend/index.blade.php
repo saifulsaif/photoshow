@@ -16,7 +16,7 @@
   gtag('config', 'UA-163803980-1');
 </script>
 
-<title>Free Image Download</title>
+<title>{{$settings->title}}</title>
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" /><!-- Bootstrap -->
@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css" /><!-- Responsive -->
 <link rel="stylesheet" href="{{asset('css/colors/colors.css')}}" type="text/css" /><!-- color -->
 
-<link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/png" href="{{asset($settings->favicon)}}"/>
 <style media="screen">
 	.view-all-blog{
 		background-color: #d90429;

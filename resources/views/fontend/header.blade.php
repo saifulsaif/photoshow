@@ -27,7 +27,7 @@
     </div>
     @endguest
     @guest
-    <a href="add-listing.html" title="" class="view-all-blog"><i class="la la-plus"></i>Free  <img style="border-radius: 50%;height: 17px;width: 20px;margin-left: 2px"  src="{{asset('/images/dollar.png')}}"></a>
+    <a href="add-listing.html" title="" class="view-all-blog"><i class="la la-plus"></i>Free  <span style="font-size:15px;margin-left: 6px;">$</span></a>
     @else
        <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
     @endguest
@@ -74,7 +74,7 @@
     </div>
     @endguest
 		@guest
-	 <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> <i class="la la-plus"></i>Free <img style="border-radius: 50%;height: 17px;width: 20px;margin-left: 2px"  src="{{asset('/images/dollar.png')}}"></a>
+	 <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> <i class="la la-plus"></i>Free <span style="font-size:15px;margin-left: 6px;">$</span></a>
 		@else
     <div class="search-header">
          <div class="review-avatar">

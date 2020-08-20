@@ -16,6 +16,8 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->String('logo');
+            $table->String('favicon');
+            $table->String('title');
             $table->String('header1');
             $table->String('header2');
             $table->String('facebook');

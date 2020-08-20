@@ -32,6 +32,34 @@
                                  </div>
                              </div>
                          </div>
+                         <div class="row">
+                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="form-group float-lb">
+                                     <div class="nk-int-st" >
+                                          <a href="#"><img style="background-color: #00c292;height:30px;width:30px;" src="{{asset($settings->favicon)}}" alt="" /></a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="form-group float-lb">
+                                     <div class="nk-int-st">
+                                         <input name="favicon" type="file" value="{{$settings->favicon}}" class="form-control">
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                       <div class="row">
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                               <div class="form-group float-lb">
+                                   <div class="nk-int-st">
+                                       <input type="text" name="title" value="{{$settings->title}}" class="form-control"><br/>
+                                       <label style="top: -14px;" class="nk-label">Site Title</label>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
                        <div class="row">
                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                <div class="form-group float-lb">

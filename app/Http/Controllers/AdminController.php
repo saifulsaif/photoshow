@@ -219,12 +219,32 @@ class AdminController extends Controller
 
     public function settingUpdate(Request $request){
       $image=$request->file('logo');
+      $favicon=$request->file('favicon');
       if ($image) {
         $image_name = $image->getClientOriginalName();
         $upload_path = 'images/logo/';
         $image->move($upload_path, $image_name);
         $image_url = $upload_path.$image_name;
         $data['logo'] = $image_url;
+        $data['title'] = $request->title;
+        $data['header1'] = $request->header1;
+        $data['header2'] = $request->header2;
+        $data['facebook'] = $request->facebook;
+        $data['twitter'] = $request->twitter;
+        $data['youtube'] = $request->youtube;
+        $data['gmail'] = $request->gmail;
+        $data['phone'] = $request->phone;
+        $data['address'] = $request->address;
+        $data['description'] = $request->description;
+        $data['footer'] = $request->footer;
+        DB::table('settings')->where('id',$request->id)->update($data);
+      }elseif($favicon){
+        $image_name = $favicon->getClientOriginalName();
+        $upload_path = 'images/logo/';
+        $favicon->move($upload_path, $image_name);
+        $image_url = $upload_path.$image_name;
+        $data['favicon'] = $image_url;
+        $data['title'] = $request->title;
         $data['header1'] = $request->header1;
         $data['header2'] = $request->header2;
         $data['facebook'] = $request->facebook;
@@ -238,6 +258,7 @@ class AdminController extends Controller
         DB::table('settings')->where('id',$request->id)->update($data);
       }else{
         $data['header1'] = $request->header1;
+        $data['title'] = $request->title;
         $data['header2'] = $request->header2;
         $data['facebook'] = $request->facebook;
         $data['twitter'] = $request->twitter;
