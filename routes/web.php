@@ -14,6 +14,7 @@ Route::get('/author-profile/{id}', 'HomeController@authorProfile')->name('author
 Route::post('/search/photo','HomeController@searchPhoto')->name('search.photo');
 Route::get('/terms-and-condition','HomeController@terms')->name('terms');
 Route::get('/privacy-policy','HomeController@policy')->name('policy');
+Route::post('/like','HomeController@like')->name('like');
 
 // End fontend............................
 

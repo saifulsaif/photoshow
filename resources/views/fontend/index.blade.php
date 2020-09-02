@@ -21,7 +21,7 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" /><!-- Bootstrap -->
 <link rel="stylesheet" href="{{asset('css/line-awesome.min.css')}}" type="text/css" /><!-- Icons -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css" /><!-- Style -->
 <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css" /><!-- Responsive -->
 <link rel="stylesheet" href="{{asset('css/colors/colors.css')}}" type="text/css" /><!-- color -->

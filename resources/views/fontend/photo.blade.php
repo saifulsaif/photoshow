@@ -172,7 +172,17 @@
 															 @if($photo->id%4==0)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;color:white;margin-right:14px;font-size: large;" id="likes">
+																	@php
+																	  $likes = DB::table('likes')
+																							->where('photo_id', '=', $photo->id)
+																							->count();
+																							if($likes>0){
+																							echo $likes;
+																							}
+																	@endphp
+																 </span>
+																 <button id="save_address" style="float:right;background: #00171f;border: navajowhite;" value="{{$photo->id}}"><img src="{{asset('/images/logo/heart.png')}}" alt="" /></button>
 															 </div>
 															 @endif
 															 @endforeach
@@ -182,8 +192,17 @@
 															 @if($photo->id%4==1)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
-															 </div>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;color:white;margin-right:14px;font-size: large;" id="likes">
+																	@php
+																	  $likes = DB::table('likes')
+																							->where('photo_id', '=', $photo->id)
+																							->count();
+																							if($likes>0){
+																							echo $likes;
+																							}
+																	@endphp
+																 </span><button id="save_address" style="float:right;background: #00171f;border: navajowhite;" value="{{$photo->id}}"><img src="{{asset('/images/logo/heart.png')}}" alt="" /></button>
+															</div>
 															 @endif
 															 @endforeach
 														 </div>
@@ -192,7 +211,16 @@
 															 @if($photo->id%4==2)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;color:white;margin-right:14px;font-size: large;" id="likes">
+ 																 @php
+ 																	 $likes = DB::table('likes')
+ 																						 ->where('photo_id', '=', $photo->id)
+ 																						 ->count();
+ 																						 if($likes>0){
+ 																						 echo $likes;
+ 																						 }
+ 																 @endphp
+ 																</span> <button id="save_address" style="float:right;background: #00171f;border: navajowhite;" value="{{$photo->id}}"><img src="{{asset('/images/logo/heart.png')}}" alt="" /></button>
 															 </div>
 															 @endif
 															 @endforeach
@@ -202,43 +230,23 @@
 															 @if($photo->id%4==3)
 															 <div class="dt-box">
 																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
-																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;"><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/images/logo/heart.png')}}" alt="" /></a></span>
+																 <span style="padding-left: 10px;">{{$photo->title}}</span><span style="float:right;color:white;margin-right:14px;font-size: large;" id="likes">
+ 																 @php
+ 																	 $likes = DB::table('likes')
+ 																						 ->where('photo_id', '=', $photo->id)
+ 																						 ->count();
+ 																						 if($likes>0){
+ 																						 echo $likes;
+ 																						 }
+ 																 @endphp
+ 																</span> <button id="save_address" style="float:right;background: #00171f;border: navajowhite;" value="{{$photo->id}}"><img src="{{asset('/images/logo/heart.png')}}" alt="" /></button>
 															 </div>
 															 @endif
 															 @endforeach
 														 </div>
 
 											 </div>
-											 <!-- <div class="row">
-														 <div class="col-md-3">
-														 @foreach($photos as $photo)
-															 <div class="dt-box">
-																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /><span>{{$photo->title}}</span></a>
-															 </div>
-															 @endforeach
-														 </div>
-														 <div class="col-md-3">
-														 @foreach($photos as $photo)
-															 <div class="dt-box">
-																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /><span>{{$photo->title}}</span></a>
-															 </div>
-															 @endforeach
-														 </div>
-														 <div class="col-md-3">
-														 @foreach($photos as $photo)
-															 <div class="dt-box">
-																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /><span>{{$photo->title}}</span></a>
-															 </div>
-															 @endforeach
-														 </div>
-														 <div class="col-md-3">
-														 @foreach($photos as $photo)
-															 <div class="dt-box">
-																 <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /><span>{{$photo->title}}</span></a>
-															 </div>
-															 @endforeach
-														 </div>
-											 </div> -->
+
 										 </div>
 									 </div>
 									</div>
@@ -256,5 +264,22 @@
 			</div>
 		</div>
 	</section>
+<script type="text/javascript">
+$(document).on('click', '#save_address', function(e){
 
+	var id=$(this).val();
+
+  $.ajax({
+    type: 'POST',
+    url: '{{ URL::route('like') }}',
+    data: {
+      'id': id, _token: '{{csrf_token()}}'
+    },
+    success: function(data) {
+			data = JSON.parse(data);
+       $('#likes').html(data);
+    }
+  });
+});
+</script>
 @endsection

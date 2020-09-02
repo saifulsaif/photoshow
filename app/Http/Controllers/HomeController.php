@@ -11,6 +11,7 @@ use App\Photo;
 use App\Profile;
 use App\Promotion;
 use App\Follower;
+use App\Like;
 use\DB;
 use\Storage;
 class HomeController extends Controller
@@ -142,6 +143,17 @@ class HomeController extends Controller
       $policy = DB::table('policy')->orderBy('id','DESC')->first();
       $settings = DB::table('settings')->find('1');
       return view('fontend.policy',compact('settings','policy'));
+    }
+
+    public function like(Request $request){
+      $data= $request->input('id');
+      $like = new Like;
+      $like->photo_id=$data;
+      $like->save();
+      $numberOfLike = DB::table('likes')
+    ->where('photo_id', '=', $data)
+    ->count();
+      return response()->json($numberOfLike);
     }
 
 }
