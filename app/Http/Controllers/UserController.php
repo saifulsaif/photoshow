@@ -58,8 +58,9 @@ class UserController extends Controller
    public function savePhoto(Request $request)  {
     // return $request->all();
     $user_id=Auth::user()->id;
-    $image=$request->file('photo');
-    if ($image) {
+    $images=$request->file('photo');
+    if ($images) {
+      foreach($images as $image)  {
       $image_name = $image->getClientOriginalName();
       $upload_path = 'images/photo/';
       $image->move($upload_path, $image_name);
@@ -79,6 +80,8 @@ class UserController extends Controller
             ['tag' => $n, 'photo_id' =>$photo->id]
         );
        }
+      }
+
     }
     DB::table('Points')
     ->where('user_id', Auth::user()->id)

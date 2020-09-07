@@ -93,10 +93,9 @@
 										@foreach($related_photos as $photo)
 										@if($photo->id%4==0)
 										<div class="product-box">
-											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
-
-											</div>
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+													<img src="{{asset('/'.$photo->photo)}}" alt="" />
+										  </a>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
@@ -106,10 +105,9 @@
 									@foreach($related_photos as $photo)
 									@if($photo->id%4==1)
 										<div class="product-box">
-											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
-
-											</div>
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+													<img src="{{asset('/'.$photo->photo)}}" alt="" />
+										  </a>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
@@ -119,10 +117,9 @@
 									@foreach($related_photos as $photo)
 									@if($photo->id%4==2)
 										<div class="product-box">
-											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
-
-											</div>
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+													<img src="{{asset('/'.$photo->photo)}}" alt="" />
+										  </a>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
@@ -132,10 +129,9 @@
 									@foreach($related_photos as $photo)
 									@if($photo->id%4==3)
 										<div class="product-box">
-											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
-
-											</div>
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+													<img src="{{asset('/'.$photo->photo)}}" alt="" />
+											</a>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif

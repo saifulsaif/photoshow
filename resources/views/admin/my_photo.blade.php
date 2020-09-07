@@ -51,7 +51,7 @@
                                                       </div>
                                                       <div class="form-group float-lb">
                                                           <div class="nk-int-st">
-                                                              <input name="photo" type="file" class="form-control" multiple>
+                                                              <input name="photo[]" type="file" class="form-control"  multiple="multiple">
                                                             </div>
                                                       </div>
                                                       <div class="form-group float-lb">
@@ -95,9 +95,9 @@
                                        <th>Date</th>
                                        <th>Author</th>
                                        <th>Category</th>
+                                       <th> Tags</th>
                                        <th>Title</th>
                                        <th> Image</th>
-                                       <th> Tags</th>
                                        <th>Option</th>
                                    </tr>
                                </thead>

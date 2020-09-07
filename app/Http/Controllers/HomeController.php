@@ -63,9 +63,6 @@ class HomeController extends Controller
    public function authorProfile($id){
    $settings = DB::table('settings')->find('1');
    $seo_title= 'Profile | '.$settings->title;
-     $seo_title= 'Promotion';
-     $seo_description= '';
-     $keyword='';
       $related_photos = DB::table('photos')
                 ->where('user_id',$id)
                 ->paginate(12);
@@ -104,7 +101,6 @@ class HomeController extends Controller
     public function searchPhoto(Request $request){
       $settings = DB::table('settings')->find('1');
       $seo_title= 'Search Photo | '.$settings->title;
-      $seo_title= 'Promotion';
       $seo_description= '';
       $keyword='';
       $categorys = DB::table('categories')->get();
