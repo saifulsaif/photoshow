@@ -37,7 +37,7 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                         <div class="form-group float-lb">
                                                             <div class="nk-int-st">
-                                                              <select style="width:100%;" name="category_id">
+                                                              <select  class="form-control" style="width:100%;" name="category_id">
                                                               @foreach($categorys as $cat)
                                                               <option value="{{$cat->id}}">{{$cat->name}}</option>
                                                               @endforeach
@@ -46,12 +46,22 @@
                                                         </div>
                                                         <div class="form-group float-lb">
                                                             <div class="nk-int-st">
-                                                                <input name="title" placeholder="Title" type="text" class="form-control">
+                                                                <input name="title" placeholder="Post Title" type="text" class="form-control">
                                                               </div>
                                                         </div>
                                                         <div class="form-group float-lb">
                                                             <div class="nk-int-st">
-                                                                <input name="photo" type="file" class="form-control">
+                                                                <input name="photo" type="file" class="form-control" multiple>
+                                                              </div>
+                                                        </div>
+                                                        <div class="form-group float-lb">
+                                                            <div class="nk-int-st">
+                                                                <input name="seo_title" placeholder="SEO Title" type="text" class="form-control" required>
+                                                              </div>
+                                                        </div>
+                                                        <div class="form-group float-lb">
+                                                            <div class="nk-int-st">
+                                                               <textarea name="seo_description" placeholder="SEO Description" type="text" class="form-control" required style="height:120px;"></textarea>
                                                               </div>
                                                         </div>
                                                         <div class="form-group float-lb">
@@ -115,7 +125,7 @@
                                           <p>{{$tag->tag}}</p>
                                         @endforeach
                                        </td>
-                                       <td><img  style="background-color:#00c292;" src="{{asset($photo->photo)}}" alt="" /></td>
+                                       <td><img  style="background-color:#00c292;height: 100px;width:250px;" src="{{asset($photo->photo)}}" alt="" /></td>
                                        <td><button style="background: #00BCD4;color:white;" class="btn notika-btn-teal waves-effect"data-toggle="modal" data-mytitle="{{$photo->id}}" id="edit"  data-target="#myModalthree"><i class="notika-icon notika-edit"></i></button>
                                         <a href="{{ route('delete.photo', $photo->id) }}"> <button class="btn btn-danger danger-icon-notika waves-effect"><i class="notika-icon notika-trash"></i></button></td>
                                    </tr>

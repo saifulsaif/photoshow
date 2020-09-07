@@ -58,7 +58,7 @@
 								<div class="single-product-gallery">
 									<ul class="single-product-images">
 
-										<li><img style="padding:9px;" src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+										<li><img style="padding:9px;" src="{{asset('/'.$photo->photo)}}" alt="" />
 
 										</li>
 								  	</ul>
@@ -67,7 +67,7 @@
 							</div>
 							<div class="col-md-4">
 								<div class="single-product-info-a">
-									<a class="download" href="{{'http://www.freedownloadimage.com/'.$photo->photo}}" download title=""><i class="la la-download"></i> 	<span>Free Download</span></a>
+									<a class="download" href="{{asset('/'.$photo->photo)}}" download title=""><i class="la la-download"></i> 	<span>Free Download</span></a>
 
 								</div>
 							</div>
@@ -92,7 +92,7 @@
 										@if($photo->id%4==0)
 										<div class="product-box">
 											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+												<img src="{{asset('/'.$photo->photo)}}" alt="" />
 
 											</div>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
@@ -105,7 +105,7 @@
 									@if($photo->id%4==1)
 										<div class="product-box">
 											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+												<img src="{{asset('/'.$photo->photo)}}" alt="" />
 
 											</div>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
@@ -118,7 +118,7 @@
 									@if($photo->id%4==2)
 										<div class="product-box">
 											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+												<img src="{{asset('/'.$photo->photo)}}" alt="" />
 
 											</div>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
@@ -131,7 +131,7 @@
 									@if($photo->id%4==3)
 										<div class="product-box">
 											<div class="product-thumb">
-												<img src="{{'http://www.freedownloadimage.com/'.$photo->photo}}" alt="" />
+											<a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">	<img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
 
 											</div>
 											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>

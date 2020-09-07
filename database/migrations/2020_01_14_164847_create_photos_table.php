@@ -17,6 +17,8 @@ class CreatePhotosTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('photo');
+            $table->text('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
             $table->string('user_id');
             $table->string('category_id');
             $table->timestamps();

@@ -67,12 +67,14 @@ class UserController extends Controller
       $photo = new Photo;
       $photo->photo=$image_url;
       $photo->title=$request->title;
+      $photo->seo_title=$request->seo_title;
+      $photo->seo_description=$request->seo_description;
       $photo->category_id=$request->category_id;
       $photo->user_id=$user_id;
       $photo->save();
       $tag=$request->tag;
        foreach ($tag as $key => $n) {
-        
+
         DB::table('tags')->insert(
             ['tag' => $n, 'photo_id' =>$photo->id]
         );

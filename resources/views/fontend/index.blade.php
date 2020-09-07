@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content="{{$seo_description}}">
 <meta name="keywords" content="">
 <meta name="author" content="creativelayers">
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -16,7 +16,7 @@
   gtag('config', 'UA-163803980-1');
 </script>
 
-<title>{{$settings->title}}</title>
+<title>{{$seo_title}}</title>
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" /><!-- Bootstrap -->
