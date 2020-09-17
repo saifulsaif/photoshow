@@ -14,8 +14,10 @@ class HomeController extends Controller
   public function getPosts($id){
     $posts =DB::table('photos as p')
       ->leftJoin('likes as l','p.id','=','l.photo_id')
+      ->leftJoin('comments as c','p.id','=','c.photo_id')
       ->leftJoin('profiles as pro','p.user_id','=','pro.user_id')
       ->select(DB::raw('count(l.photo_id) as total_likes,
+        count(c.photo_id) as total_comments,
         p.id,p.title,
         p.photo,p.category_id,
         p.created_at,
@@ -34,9 +36,9 @@ class HomeController extends Controller
       ->groupBy('pro.photo')
       ->groupBy('pro.first_name')
       ->groupBy('pro.last_name')
-      ->paginate(100);
-    echo'<pre>';
-    print_r($posts);
+      ->paginate(10);
+    // echo'<pre>';
+    // print_r($posts);
     return response()->json($posts);
   }
 }
