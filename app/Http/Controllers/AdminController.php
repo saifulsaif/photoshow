@@ -81,12 +81,20 @@ class AdminController extends Controller
       $settings = DB::table('settings')->find('1');
       return view('admin.all_photo',compact('settings','all_photos','categorys'));
     }
+
     public function myPhoto(){
       $user_id=Auth::user()->id;
       $categorys = DB::table('categories')->get();
       $all_photos = DB::table('photos')->where('user_id',$user_id)->orderBy('id', 'DESC')->paginate(10);
       $settings = DB::table('settings')->find('1');
       return view('admin.my_photo',compact('settings','all_photos','categorys'));
+    }
+    public function addImage()  {
+      $user_id=Auth::user()->id;
+      $categorys = DB::table('categories')->get();
+      $all_photos = DB::table('photos')->where('user_id',$user_id)->orderBy('id', 'DESC')->paginate(10);
+      $settings = DB::table('settings')->find('1');
+      return view('admin.add_image',compact('settings','all_photos','categorys'));
     }
 
 
@@ -114,6 +122,41 @@ class AdminController extends Controller
       }
       return back();
     }
+    public function savePhoto(Request $request)  {
+      
+     $user_id=Auth::user()->id;
+     $images=$request->file('photo');
+     if ($images) {
+       foreach($images as $image)  {
+       $image_name = $image->getClientOriginalName();
+       $upload_path = 'images/photo/';
+       $image->move($upload_path, $image_name);
+       $image_url = $upload_path.$image_name;
+       $photo = new Photo;
+       $photo->photo=$image_url;
+       $photo->title=$request->title;
+       $photo->seo_title=$request->seo_title;
+       $photo->seo_keywords=$request->seo_keywords;
+       $photo->seo_description=$request->seo_description;
+       $photo->category_id=$request->category_id;
+       $photo->user_id=$user_id;
+       $photo->save();
+       $tag=$request->tag;
+        foreach ($tag as $key => $n) {
+
+         DB::table('tags')->insert(
+             ['tag' => $n, 'photo_id' =>$photo->id]
+         );
+        }
+       }
+
+     }
+     DB::table('Points')
+     ->where('user_id', Auth::user()->id)
+     ->increment('point',50);
+      session()->flash('success','Photo Save Successfully!');
+     return back();
+   }
     public function categoryDelete($id){
       $category = Category::find($id);
       if(file_exists($category->image)){
@@ -211,6 +254,7 @@ class AdminController extends Controller
            }
            return back();
         }
+
 
     public function setting()  {
         $settings = DB::table('settings')->find('1');

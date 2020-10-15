@@ -13,6 +13,7 @@ use App\Promotion;
 use App\Follower;
 use App\Like;
 use\DB;
+use\Str;
 use\Storage;
 class HomeController extends Controller
 {
@@ -39,19 +40,28 @@ class HomeController extends Controller
              return redirect()->route('admin');
            }
         }
+      //  return Str::slug('hello i am your bou');
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Home | '.$settings->title;
+      $seo_title=$settings->title;
       $seo_description= '';
       $keyword='';
       $categorys = DB::table('categories')->limit(8)->get();
       $sliders = DB::table('sliders')->get();
       $promotions = DB::table('promotions')->limit(5)->orderBy('id','DESC')->get();
-      $photos = DB::table('photos')->limit(9)->orderBy('id', 'DESC')->get();
+      // $photo = DB::table('photos')->distinct()->get(['category_id']);
+      // echo '<pre>';
+      // print_r($photo);
+      // exit;
+      $photos = DB::table('photos')
+              ->distinct('category_id')
+              ->limit(9)
+              ->orderBy('id', 'DESC')
+              ->get();
       return view('fontend.home',compact('categorys','settings','sliders','photos','promotions','seo_title','seo_description','keyword'));
     }
     public function photo(){
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Photo | '.$settings->title;
+      $seo_title= $settings->title;
       $seo_description= '';
       $keyword='';
       $categorys = DB::table('categories')->get();
@@ -62,7 +72,7 @@ class HomeController extends Controller
     }
    public function authorProfile($id){
    $settings = DB::table('settings')->find('1');
-   $seo_title= 'Profile | '.$settings->title;
+   $seo_title= $settings->title;
       $related_photos = DB::table('photos')
                 ->where('user_id',$id)
                 ->paginate(12);
@@ -77,7 +87,23 @@ class HomeController extends Controller
                 ->count('id');
       return view('fontend.author-profile',compact('followers','following','settings','related_photos','id','upload','seo_title','seo_description','keyword'));
     }
-   public function photoView($id,$category_id){
+   public function photoTag($tag){
+     $settings = DB::table('settings')->find('1');
+     $seo_title= $settings->title;
+     $seo_description= '';
+     $keyword='';
+     $categorys = DB::table('categories')->get();
+     $photos = DB::table('tags')
+            ->join('photos','photos.id','=','tags.photo_id')
+             ->where('tags.tag','like','%' . $tag . '%')
+             ->orderBy('tags.id', 'DESC')
+             ->paginate(20);
+     $photo_count= DB::table('photos')
+               ->count('id');
+        // dd($photos);
+     return view('fontend.photo',compact('categorys','settings','photos','photo_count','seo_title','seo_description','keyword'));
+   }
+   public function photoView($id,$category_id,$slug){
       $settings = DB::table('settings')->find('1');
       $title = DB::table('photos')
                 ->select('*')
@@ -95,12 +121,12 @@ class HomeController extends Controller
                 ->get();
       $seo_title= $title->seo_title;
       $seo_description= $title->seo_description;
-      $keyword=$related_tags;
+      $keyword=$title->seo_keywords;
       return view('fontend.photo-view',compact('settings','photos','related_photos','related_tags','seo_title','seo_description','keyword'));
     }
     public function searchPhoto(Request $request){
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Search Photo | '.$settings->title;
+      $seo_title=$settings->title;
       $seo_description= '';
       $keyword='';
       $categorys = DB::table('categories')->get();
@@ -119,7 +145,7 @@ class HomeController extends Controller
         $photos = DB::table('photos')
                 ->where('category_id',$request->category)
                 ->orderBy('id', 'DESC')
-                ->get();
+                ->paginate(20);
       }elseif($request->keyword!=''){
         $photos = DB::table('photos')
                 ->where('title','like','%' . $request->keyword . '%')
@@ -136,7 +162,7 @@ class HomeController extends Controller
     }
     public function promotion(){
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Promotion | '.$settings->title;
+      $seo_title= $settings->title;
       $seo_description= '';
       $keyword='';
       $promotions = DB::table('promotions')->orderBy('id','DESC')->get();
@@ -144,14 +170,14 @@ class HomeController extends Controller
     }
     public function contact(){
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Comtact | '.$settings->title;
+      $seo_title= $settings->title;
       $seo_description= '';
       $keyword='';
       return view('fontend.contact',compact('settings','seo_title','seo_description','keyword'));
     }
     public function profile(){
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Profile | '.$settings->title;
+      $seo_title= $settings->title;
       $seo_description= '';
       $keyword='';
       $user_id=Auth::user()->id;
@@ -162,7 +188,7 @@ class HomeController extends Controller
     }
       public function terms(){
         $settings = DB::table('settings')->find('1');
-        $seo_title= 'Team | '.$settings->title;
+        $seo_title= $settings->title;
         $seo_description= '';
         $keyword='';
       $terms = DB::table('terms')->orderBy('id','DESC')->first();
@@ -170,7 +196,7 @@ class HomeController extends Controller
     }
     public function policy(){
       $settings = DB::table('settings')->find('1');
-      $seo_title= 'Policy | '.$settings->title;
+      $seo_title= $settings->title;
       $seo_description= '';
       $keyword='';
       $policy = DB::table('policy')->orderBy('id','DESC')->first();

@@ -9,7 +9,8 @@ Route::get('/video', 'HomeController@video')->name('video');
 Route::get('/promotion', 'HomeController@promotion')->name('promotion');
 Route::get('/contact-us', 'HomeController@contact')->name('contact');
 Route::get('/user-profile', 'HomeController@profile')->name('profile');
-Route::get('/photos/view/{id}/{category_id}', 'HomeController@photoView')->name('photos');
+Route::get('/photos/view/{id}/{category_id}/{slug}', 'HomeController@photoView')->name('photos');
+Route::get('/photos/tag/{tag}', 'HomeController@photoTag')->name('tag');
 Route::get('/author-profile/{id}', 'HomeController@authorProfile')->name('author.profile');
 Route::post('/search/photo','HomeController@searchPhoto')->name('search.photo');
 Route::get('/terms-and-condition','HomeController@terms')->name('terms');
@@ -22,6 +23,7 @@ Route::post('/like','HomeController@like')->name('like');
 // Start Admin site.....................
 
 Route::post('photo/save','UserController@savePhoto')->name('save.photo');
+Route::post('photo/save','AdminController@savePhoto')->name('save.admin.photo');
 Route::get('/photo/delete/{id}', 'UserController@deletePhoto')->name('delete.photo');
 Route::get('/update-profile', 'UserController@updateProfile')->name('update.profile');
 Route::post('/update-profile-info', 'UserController@updateProfileInfo')->name('update.profile.info');
@@ -35,6 +37,7 @@ Route::get('/admin/slider/delete/{id}', 'AdminController@sliderDelete')->name('s
 
 Route::get('/admin/all-photos', 'AdminController@allPhoto')->name('all_photo');
 Route::get('/admin/my-photos', 'AdminController@myPhoto')->name('my_photo');
+Route::get('/add/images', 'AdminController@addImage')->name('add.image');
 // Route::post('/admin/save', 'AdminController@sliderSave')->name('slider.save');
 // Route::get('/admin/slider/delete/{id}', 'AdminController@sliderDelete')->name('slider.delete');
 

@@ -173,7 +173,7 @@
                  @foreach($photos as $photo)
                  @if($photo->id%3==0)
                  <div class="dt-box">
-                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
                    <span style="padding-left: 10px;">{{$photo->title}}</span>
                  </div>
                  @endif
@@ -183,7 +183,7 @@
                  @foreach($photos as $photo)
                  @if($photo->id%3==1)
                  <div class="dt-box">
-                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
                    <span style="padding-left: 10px;">{{$photo->title}}</span>
                  </div>
                  @endif
@@ -193,7 +193,7 @@
                  @foreach($photos as $photo)
                  @if($photo->id%3==2)
                  <div class="dt-box">
-                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
+                   <a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title=""><img src="{{asset('/'.$photo->photo)}}" alt="" /></a>
                    <span style="padding-left: 10px;">{{$photo->title}}</span>
                  </div>
                  @endif

@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{$seo_description}}">
-<meta name="keywords" content="">
+<meta name="keywords" content="{{$keyword}}">
 <meta name="author" content="creativelayers">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -101,9 +101,9 @@ color: #1a1a1a;
 </style>
 </head>
 <body>
-<div class="page-loading">
+<!-- <div class="page-loading">
 	<div class="loadery"></div>
-</div>
+</div> -->
 <div class="theme-layout">
 
 

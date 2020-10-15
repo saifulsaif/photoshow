@@ -129,6 +129,10 @@
     <!-- main JS
 		============================================ -->
     <script src="{{ asset('admin/js/main.js')}}"></script>
+
+    <script src="js/summernote/summernote-updated.min.js"></script>
+    <script src="js/summernote/summernote-active.js"></script>
+    <!-- dropzone JS
 	<!-- tawk chat JS
 		============================================
     <script src="{{ asset('admin/js/tawk-chat.js')}}"></script>

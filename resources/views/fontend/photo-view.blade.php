@@ -76,7 +76,7 @@
 							    <div class="filter-bar">
 									<span style="color: #1c2027;float: left;font-family: Roboto;font-size: 24px;margin: 11px 0;font-weight: 500;">Related Tags</span><br/>
 								@foreach($related_tags as $tag)
-								 <a class="rd__tag" data-track-action="medium-related-tags" data-track-label="tag" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">{{$tag->tag}}</a>
+								 <a class="rd__tag" data-track-action="medium-related-tags" data-track-label="tag" href="{{url('/photos/tag')}}/{{$tag->tag}}">{{$tag->tag}}</a>
 								@endforeach
 								</div>
 								<div class="filter-bar">
@@ -91,10 +91,10 @@
 										@foreach($related_photos as $photo)
 										@if($photo->id%4==0)
 										<div class="product-box">
-											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}">
 													<img src="{{asset('/'.$photo->photo)}}" alt="" />
 										  </a>
-											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
 										@endforeach
@@ -103,10 +103,10 @@
 									@foreach($related_photos as $photo)
 									@if($photo->id%4==1)
 										<div class="product-box">
-											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}">
 													<img src="{{asset('/'.$photo->photo)}}" alt="" />
 											</a>
-											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
 										@endforeach
@@ -115,10 +115,10 @@
 									@foreach($related_photos as $photo)
 									@if($photo->id%4==2)
 										<div class="product-box">
-											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}">
 													<img src="{{asset('/'.$photo->photo)}}" alt="" />
 											</a>
-											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
 										@endforeach
@@ -127,10 +127,10 @@
 									@foreach($related_photos as $photo)
 									@if($photo->id%4==3)
 										<div class="product-box">
-											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}">
+											<a  class="product-thumb" href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}">
 													<img src="{{asset('/'.$photo->photo)}}" alt="" />
 										  </a>
-											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}" title="">{{$photo->title}}</a></h3>
+											<h3><a href="{{url('/photos/view')}}/{{$photo->id}}/{{$photo->category_id}}/{{Str::slug($photo->title)}}" title="">{{$photo->title}}</a></h3>
 										</div>
 										@endif
 										@endforeach

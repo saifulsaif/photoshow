@@ -22,10 +22,11 @@
                            <p style="margin-bottom: 0px;float: right;color: white;"><button class="btn notika-btn-teal waves-effect"data-toggle="modal" data-target="#myModaltwo"><i class="notika-icon notika-plus"></i>Add</button>
 
                            </p>
+                          <a style="color:white;" href="{{route('add.image')}}"> <button type="button" class="btn notika-btn-teal waves-effect" name="button">add Images</button></a>
                        </div>
                        <div class="modal fade" id="myModaltwo" role="dialog">
                                     <div class="modal-dialog modal-sm">
-                                      <form action="{{route('save.photo')}}" method="post" enctype="multipart/form-data">
+                                      <form action="{{route('save.admin.photo')}}" method="post" enctype="multipart/form-data">
                                          {{csrf_field() }}
                                       <div class="modal-content">
                                           <div class="modal-header">
@@ -97,7 +98,9 @@
                                        <th>Category</th>
                                        <th> Tags</th>
                                        <th>Title</th>
-                                       <th> Image</th>
+                                       <th>Seo Description</th>
+                                       <th>Seo Keywords</th>
+                                       <th style="width:200px;"> Image</th>
                                        <th>Option</th>
                                    </tr>
                                </thead>
@@ -125,6 +128,9 @@
                                          <p>{{$tag->tag}}</p>
                                        @endforeach
                                       </td>
+                                      <td>{{$photo->seo_description}}</td>
+                                      <td>{{$photo->seo_keywords}}</td>
+
                                        <td><img  style="background-color:#00c292;height: 100px;width:250px;" src="{{asset($photo->photo)}}" alt="" /></td>
                                        <td><button style="background: #00BCD4;color:white;" class="btn notika-btn-teal waves-effect"data-toggle="modal" data-mytitle="{{$photo->id}}" id="edit"  data-target="#myModalthree"><i class="notika-icon notika-edit"></i></button>
                                         <a href="{{ route('delete.photo', $photo->id) }}"> <button class="btn btn-danger danger-icon-notika waves-effect"><i class="notika-icon notika-trash"></i></button></td>
