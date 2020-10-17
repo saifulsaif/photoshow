@@ -38,6 +38,8 @@ Route::get('/admin/slider/delete/{id}', 'AdminController@sliderDelete')->name('s
 Route::get('/admin/all-photos', 'AdminController@allPhoto')->name('all_photo');
 Route::get('/admin/my-photos', 'AdminController@myPhoto')->name('my_photo');
 Route::get('/add/images', 'AdminController@addImage')->name('add.image');
+Route::get('/photo/edit/{id}', 'AdminController@editPhoto')->name('edit.photo');
+Route::post('photo/update','AdminController@updatePhoto')->name('update.admin.photo');
 // Route::post('/admin/save', 'AdminController@sliderSave')->name('slider.save');
 // Route::get('/admin/slider/delete/{id}', 'AdminController@sliderDelete')->name('slider.delete');
 

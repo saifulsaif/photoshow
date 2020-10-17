@@ -19,10 +19,10 @@
                                <p>{{Session::get('success')}}</p>
                              </div>
                            @endif
-                           <p style="margin-bottom: 0px;float: right;color: white;"><button class="btn notika-btn-teal waves-effect"data-toggle="modal" data-target="#myModaltwo"><i class="notika-icon notika-plus"></i>Add</button>
+                           <!-- <p ><button class="btn notika-btn-teal waves-effect"data-toggle="modal" data-target="#myModaltwo"><i class="notika-icon notika-plus"></i>Add</button>
 
-                           </p>
-                          <a style="color:white;" href="{{route('add.image')}}"> <button type="button" class="btn notika-btn-teal waves-effect" name="button">add Images</button></a>
+                           </p> -->
+                          <a style="color:white; float:right;" href="{{route('add.image')}}"> <button type="button" class="btn notika-btn-teal waves-effect" name="button">add Images</button></a>
                        </div>
                        <div class="modal fade" id="myModaltwo" role="dialog">
                                     <div class="modal-dialog modal-sm">
@@ -131,10 +131,10 @@
                                       <td>{{$photo->seo_description}}</td>
                                       <td>{{$photo->seo_keywords}}</td>
 
-                                       <td><img  style="background-color:#00c292;height: 100px;width:250px;" src="{{asset($photo->photo)}}" alt="" /></td>
-                                       <td><button style="background: #00BCD4;color:white;" class="btn notika-btn-teal waves-effect"data-toggle="modal" data-mytitle="{{$photo->id}}" id="edit"  data-target="#myModalthree"><i class="notika-icon notika-edit"></i></button>
-                                        <a href="{{ route('delete.photo', $photo->id) }}"> <button class="btn btn-danger danger-icon-notika waves-effect"><i class="notika-icon notika-trash"></i></button></td>
-                                   </tr>
+                                       <td><img  style="background-color:#00c292;height: 80px;width:150px;" src="{{asset($photo->photo)}}" alt="" /></td>
+                                       <td>  <a href="{{ route('edit.photo', $photo->id) }}"> <button class="btn btn-info danger-icon-notika waves-effect"><i class="notika-icon notika-edit"></i></button>
+                                     <a href="{{ route('delete.photo', $photo->id) }}"> <button class="btn btn-danger danger-icon-notika waves-effect"><i class="notika-icon notika-trash"></i></button>
+                                      </tr>
                                    @endforeach
                                </tbody>
                            </table>

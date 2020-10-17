@@ -27,7 +27,7 @@
     </div>
     @endguest
     @guest
-    <a href="add-listing.html" title="" class="view-all-blog"><i class="la la-plus"></i>Free  <span style="font-size:15px;margin-left: 6px;">$</span></a>
+    <a href="" title="" class="view-all-blog"><i class="la la-plus"></i>Free  <span style="font-size:15px;margin-left: 6px;">$</span></a>
     @else
        <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
     @endguest

@@ -30,7 +30,7 @@
     @endguest
 
     @guest
-    <a href="add-listing.html" title="" class="add-listing-btn"><i class="la la-plus"></i>Free $</a>
+    <a href="" title="" class="add-listing-btn"><i class="la la-plus"></i>Free $</a>
     @else
        <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
     @endguest

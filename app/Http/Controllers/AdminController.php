@@ -40,7 +40,14 @@ class AdminController extends Controller
          }
       }
       $settings = DB::table('settings')->find('1');
-      return view('admin.dashboard',compact('settings'));
+      $admin_users = DB::table('users')->where('role','admin')->count();
+      $users = DB::table('users')->where('role','user')->count();
+      $total_photos = DB::table('photos')->count();
+      $promotions = DB::table('promotions')->count();
+      $all_photos = DB::table('photos')->orderBy('id', 'DESC')->paginate(10);
+      $categorys = DB::table('categories')->get();
+      //dd($total_photos);
+      return view('admin.dashboard',compact('settings','total_photos','admin_users','users','promotions','all_photos','categorys'));
     }
     public function slider(){
       $sliders = DB::table('sliders')->get();
@@ -97,6 +104,68 @@ class AdminController extends Controller
       return view('admin.add_image',compact('settings','all_photos','categorys'));
     }
 
+    public function editPhoto($id)  {
+      $categorys = DB::table('categories')->get();
+      $settings = DB::table('settings')->find('1');
+      $update_info = DB::table('photos as p')
+                    ->join('categories as c','c.id','=','p.category_id')
+                    ->where('p.id',$id)
+                    ->select('p.*','c.id as category_id','c.name')
+                    ->first();
+                    // dd($update_info);
+      return view('admin.edit_image',compact('settings','update_info','categorys'));
+    }
+
+    public function updatePhoto(Request $request)  {
+    //return $request->all();
+     $user_id=Auth::user()->id;
+     $images=$request->file('photo');
+     if ($images) {
+       foreach($images as $image)  {
+       $image_name = $image->getClientOriginalName();
+       $upload_path = 'images/photo/';
+       $image->move($upload_path, $image_name);
+       $image_url = $upload_path.$image_name;
+       DB::table('photos')
+            ->where('id', $request->id)
+            ->update([
+              'title' => $request->title,
+              'photo' => $image_url,
+              'seo_title' => $request->seo_title,
+              'seo_keywords' => $request->seo_keywords,
+              'seo_description' => $request->seo_description,
+              'category_id' => $request->category_id,
+              'user_id' => $user_id
+            ]);
+       // $tag=$request->tag;
+       // if(!empty($tag)){
+       //  foreach ($tag as $key => $n) {
+       //
+       //   DB::table('tags')->insert(
+       //       ['tag' => $n, 'photo_id' => $request->id]
+       //   );
+       //  }
+       // }
+     }
+
+     }else{
+       DB::table('photos')
+            ->where('id', $request->id)
+            ->update([
+              'title' => $request->title,
+              'seo_title' => $request->seo_title,
+              'seo_keywords' => $request->seo_keywords,
+              'seo_description' => $request->seo_description,
+              'category_id' => $request->category_id,
+              'user_id' => $user_id
+            ]);
+     }
+     DB::table('Points')
+     ->where('user_id', Auth::user()->id)
+     ->increment('point',50);
+      session()->flash('success','Photo Save Successfully!');
+     return back();
+    }
 
 
 
@@ -123,7 +192,7 @@ class AdminController extends Controller
       return back();
     }
     public function savePhoto(Request $request)  {
-      
+
      $user_id=Auth::user()->id;
      $images=$request->file('photo');
      if ($images) {

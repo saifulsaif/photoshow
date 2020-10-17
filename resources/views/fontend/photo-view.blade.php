@@ -74,6 +74,9 @@
 						@endforeach
 							<div class="col-md-12 column">
 							    <div class="filter-bar">
+								<h1>{{$photo->title}}</h1>		
+								</div>
+							    <div class="filter-bar">
 									<span style="color: #1c2027;float: left;font-family: Roboto;font-size: 24px;margin: 11px 0;font-weight: 500;">Related Tags</span><br/>
 								@foreach($related_tags as $tag)
 								 <a class="rd__tag" data-track-action="medium-related-tags" data-track-label="tag" href="{{url('/photos/tag')}}/{{$tag->tag}}">{{$tag->tag}}</a>
