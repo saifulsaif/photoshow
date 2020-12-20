@@ -74,7 +74,8 @@
 						@endforeach
 							<div class="col-md-12 column">
 							    <div class="filter-bar">
-								<h1>{{$photo->title}}</h1>		
+								<h1>{{$photo->title}}</h1>	
+								<h1>{!! $description !!}</h1>	
 								</div>
 							    <div class="filter-bar">
 									<span style="color: #1c2027;float: left;font-family: Roboto;font-size: 24px;margin: 11px 0;font-weight: 500;">Related Tags</span><br/>

@@ -30,6 +30,7 @@
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/summernote/summernote.css') }}">
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin/css/normalize.css') }}">
@@ -128,10 +129,10 @@
     <script src="{{ asset('admin/js/bootstrap-select/bootstrap-select.js')}}"></script>
     <!-- main JS
 		============================================ -->
+    <script src="{{ asset('admin/js/summernote/summernote-updated.min.js')}}"></script>
     <script src="{{ asset('admin/js/main.js')}}"></script>
+    <script src="{{ asset('admin/js/summernote/summernote-active.js')}}"></script>
 
-    <script src="js/summernote/summernote-updated.min.js"></script>
-    <script src="js/summernote/summernote-active.js"></script>
     <!-- dropzone JS
 	<!-- tawk chat JS
 		============================================

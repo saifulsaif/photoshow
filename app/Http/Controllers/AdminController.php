@@ -134,6 +134,7 @@ class AdminController extends Controller
               'seo_title' => $request->seo_title,
               'seo_keywords' => $request->seo_keywords,
               'seo_description' => $request->seo_description,
+              'description' => $request->description,
               'category_id' => $request->category_id,
               'user_id' => $user_id
             ]);
@@ -156,6 +157,7 @@ class AdminController extends Controller
               'seo_title' => $request->seo_title,
               'seo_keywords' => $request->seo_keywords,
               'seo_description' => $request->seo_description,
+              'description' => $request->description,
               'category_id' => $request->category_id,
               'user_id' => $user_id
             ]);
@@ -192,7 +194,6 @@ class AdminController extends Controller
       return back();
     }
     public function savePhoto(Request $request)  {
-
      $user_id=Auth::user()->id;
      $images=$request->file('photo');
      if ($images) {
@@ -207,6 +208,7 @@ class AdminController extends Controller
        $photo->seo_title=$request->seo_title;
        $photo->seo_keywords=$request->seo_keywords;
        $photo->seo_description=$request->seo_description;
+       $photo->description=$request->description;
        $photo->category_id=$request->category_id;
        $photo->user_id=$user_id;
        $photo->save();

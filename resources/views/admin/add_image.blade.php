@@ -40,12 +40,14 @@
                          <div class="form-group float-lb">
                              <div class="nk-int-st">
                                 <textarea name="seo_description" placeholder="SEO Description" type="text" class="form-control" required style="height:120px;"></textarea>
+                               
                                </div>
                          </div>
                          <div class="form-group float-lb">
-                           <div class="html-editor">
-
-                           </div>
+                             <div class="nk-int-st">
+                                <textarea class="html-editor" name="description" placeholder="SEO Description" type="text" class="form-control" required style="height:120px;"></textarea>
+                               
+                               </div>
                          </div>
                          <div class="form-group float-lb">
                            <div class="table-responsive">

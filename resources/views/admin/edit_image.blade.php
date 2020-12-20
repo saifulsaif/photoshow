@@ -20,7 +20,7 @@
                          </div>
                          <div class="form-group float-lb">
                              <div class="nk-int-st">
-                                 <input name="title" value="{{$update_info->title}}" placeholder="Post Title" type="text" class="form-control">
+                                 <input name="title" value="{{$update_info->title}}" placeholder="Post Title" type="text" class="form-control" requierd>
                                  <input name="id" value="{{$update_info->id}}" placeholder="Post Title" type="hidden" class="form-control">
                                </div>
                          </div>
@@ -48,10 +48,12 @@
                                </div>
                          </div>
                          <div class="form-group float-lb">
-                           <div class="html-editor">
-
-                           </div>
+                             <div class="nk-int-st">
+                                <textarea class="html-editor" name="description" placeholder="SEO Description" type="text" class="form-control" required style="height:120px;">{{$update_info->description}}</textarea>
+                               
+                               </div>
                          </div>
+                       
                          <!-- <div class="form-group float-lb">
                            <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">

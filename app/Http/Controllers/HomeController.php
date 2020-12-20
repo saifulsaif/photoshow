@@ -104,6 +104,7 @@ class HomeController extends Controller
      return view('fontend.photo',compact('categorys','settings','photos','photo_count','seo_title','seo_description','keyword'));
    }
    public function photoView($id,$category_id,$slug){
+
       $settings = DB::table('settings')->find('1');
       $title = DB::table('photos')
                 ->select('*')
@@ -113,6 +114,12 @@ class HomeController extends Controller
                 ->select('*')
                 ->where('photos.id',$id)
                 ->get();
+      $dis = DB::table('photos')
+                ->select('*')
+                ->where('photos.id',$id)
+                ->select('description')
+                ->first();
+             // dd($dis->description);    
       $related_photos = DB::table('photos')
                 ->where('category_id',$category_id)
                 ->paginate(12);
@@ -121,8 +128,9 @@ class HomeController extends Controller
                 ->get();
       $seo_title= $title->seo_title;
       $seo_description= $title->seo_description;
-      $keyword=$title->seo_keywords;
-      return view('fontend.photo-view',compact('settings','photos','related_photos','related_tags','seo_title','seo_description','keyword'));
+       $keyword=$title->seo_keywords;
+       $description=$dis->description;
+      return view('fontend.photo-view',compact('description','settings','photos','related_photos','related_tags','seo_title','seo_description','keyword'));
     }
     public function searchPhoto(Request $request){
       $settings = DB::table('settings')->find('1');
